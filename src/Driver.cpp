@@ -7,7 +7,7 @@
 #include <iostream>
 #include <memory>
 
-#include <multisense_lib/MultiSenseChannel.hh>
+#include <MultiSense/MultiSenseChannel.hh>
 
 #include <lcm/lcm-cpp.hpp>
 #include <lcmtypes/multisense/command_t.hpp>
