@@ -11,8 +11,14 @@ add_executable(${DRIVER_NAME}
   Main.cpp
 )
 
+
+find_package(ZLIB REQUIRED)
+find_package(LibMultiSense REQUIRED)
+
+target_link_libraries(${DRIVER_NAME} ${ZLIB_LIBRARIES} ${LIBMULTISENSE_LIBRARIES})
+
 pods_use_pkg_config_packages(${DRIVER_NAME}
-  multisense-lib lcm opencv zlib
+  lcm opencv
 )
 
 pods_install_executables(${DRIVER_NAME})
