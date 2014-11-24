@@ -1,3 +1,20 @@
+This is a standalone driver for the Multisense SL that communicates via
+lcm (lightweight communication and marshalling).
+
+Dependencies are currently:
+  libmultisense (https://bitbucket.org/crl/libmultisense)
+  lcm (https://github.com/lcm-proj/lcm)
+  opencv (http://opencv.org/)
+
+The driver is currently tested on linux (Ubuntu 12.04 and later), and is
+built using pods (see below) and cmake. The application listens for
+command_t messages to change sensor settings, and produces images_t
+messages that contain color and depth images, imu_t messages that
+contain raw imu readings, planar_lidar_t messages that contain raw laser
+scans, and state_t messages that encode the laser spindle angle at the
+beginning and end of each scan. Intrinsic and extrinsic sensor
+calibration data is not handled by the driver.
+
 This software is constructed according to the Pods software policies and
 templates.  The policies and templates can be found at:
 
