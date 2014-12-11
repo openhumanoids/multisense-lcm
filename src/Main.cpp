@@ -57,6 +57,7 @@ int main(const int iArgc, const char** iArgv) {
   opt.add(commandChannel,"k","command-channel",
           "sensor command input lcm channel");
   opt.parse();
+  useImu = imuChannel.length()>0;
 
   // echo settings
   std::cout << "===== options set =====" << std::endl;
