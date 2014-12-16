@@ -37,6 +37,7 @@ int main(const int iArgc, const char** iArgv) {
   std::string stateChannel("MULTISENSE_STATE");
   std::string commandChannel("MULTISENSE_COMMAND");
   std::string lcmUrl("");
+  std::string laserJointName("motor_joint");
 
   // parse command line arguments
   ConciseArgs opt(iArgc, (char**)iArgv);
@@ -56,6 +57,7 @@ int main(const int iArgc, const char** iArgv) {
   opt.add(stateChannel,"s","state-channel","sensor state output lcm channel");
   opt.add(commandChannel,"k","command-channel",
           "sensor command input lcm channel");
+  opt.add(laserJointName, "n","laser-joint","name of laser joint");
   opt.parse();
   useImu = imuChannel.length()>0;
 
@@ -84,6 +86,7 @@ int main(const int iArgc, const char** iArgv) {
   else std::cout << "  imu disabled" << std::endl;
   std::cout << "  state output channel: " << stateChannel << std::endl;
   std::cout << "  command input channel: " << commandChannel << std::endl;
+  std::cout << "  laser joint name: " << laserJointName << std::endl;
   std::cout << "===== end options =====" << std::endl << std::endl;
 
   // set up lcm
@@ -118,6 +121,7 @@ int main(const int iArgc, const char** iArgv) {
   gDriver->getCamera()->setJpegQuality(jpegQuality);
   gDriver->getCamera()->setZlibCompression(zlibCompression);
   gDriver->getCamera()->setOutputMode((Camera::OutputMode)outputMode);
+  gDriver->getLaser()->setJointName(laserJointName);
 
   // start driver
   if (!gDriver->start()) {

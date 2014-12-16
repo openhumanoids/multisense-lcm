@@ -12,6 +12,7 @@ public:
   ~Laser();
 
   void setStateChannel(const std::string& iChannel);
+  void setJointName(const std::string& iName);
 
   bool setSpindleSpeed(const float iRpm);
 

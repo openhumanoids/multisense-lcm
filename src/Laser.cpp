@@ -112,6 +112,11 @@ setStateChannel(const std::string& iChannel) {
   mImp->mStateChannel = iChannel;
 }
 
+void Laser::
+setJointName(const std::string& iName) {
+  mImp->mStateMessage.joint_name[0] = iName;
+}
+
 bool Laser::
 setSpindleSpeed(const float iRpm) {
   if (std::abs(iRpm) > mImp->kRpmLimit) {
