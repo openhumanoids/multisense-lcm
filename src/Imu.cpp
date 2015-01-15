@@ -9,7 +9,7 @@
 struct Imu::Imp {
 
   // unit conversion factors
-  static constexpr double kPi = std::acos(-1);
+  static constexpr double kPi = M_PI;
   static constexpr double kAccelFactor = 9.81;    // from g to m/s^2
   static constexpr double kGyroFactor = kPi/180;  // from deg/sec to rad/sec 
   static constexpr double kMagFactor = 1.0;       // no conversion

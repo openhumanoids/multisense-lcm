@@ -10,7 +10,7 @@
 
 struct Laser::Imp {
 
-  static constexpr double kPi = std::acos(-1);
+  static constexpr double kPi = M_PI;
   static constexpr double kRpmLimit = 50;
   static constexpr double kAngleOffset = kPi;
 
