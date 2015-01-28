@@ -1,8 +1,9 @@
 #include <iostream>
 #include <csignal>
 
-#include <ConciseArgs>
 #include <lcm/lcm-cpp.hpp>
+
+#include "ConciseArgs"
 
 #include "Driver.hpp"
 #include "Laser.hpp"
