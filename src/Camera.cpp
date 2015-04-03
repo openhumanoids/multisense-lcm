@@ -507,9 +507,15 @@ Camera::
 Camera(crl::multisense::Channel* iChannel) : Sensor(iChannel) {
   mImp.reset(new Imp(this));
 
-  // set some defaults
-  setFrameRate(5);
-  setAutoExposure(true);
+  // set crl default config parameters
+  crl::multisense::image::Config config;
+  mImp->setConfig(config);
+
+  // set up local parameters
+  // TODO: this is to workaround a driver bug in setting the exposure
+  setAutoExposure(false);
+  setExposureTime(config.exposure());
+  setAutoExposure(config.autoExposure());
 }
 
 Camera::

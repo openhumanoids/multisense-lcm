@@ -40,6 +40,14 @@ struct Driver::Imp {
                       const std::string& iChannel,
                       const multisense::command_t* iMessage) {
     std::cout << "command message received" << std::endl;
+    std::cout << "  fps: " << iMessage->fps << std::endl;
+    std::cout << "  gain: " << iMessage->gain << std::endl;
+    std::cout << "  auto exposure: " <<
+      (iMessage->agc ? "true" : "false") << std::endl;
+    std::cout << "  exposure: " << iMessage->exposure_us << " us" << std::endl;
+    std::cout << "  led flash: " <<
+      (iMessage->leds_flash ? "true" : "false") << std::endl;
+    std::cout << "  led duty cycle: " << iMessage->leds_duty_cycle << std::endl;
     mLaser->setSpindleSpeed(iMessage->rpm);
     if (iMessage->fps > 0) mCamera->setFrameRate(iMessage->fps);
     if (iMessage->gain > 0) mCamera->setGainFactor(iMessage->gain);
