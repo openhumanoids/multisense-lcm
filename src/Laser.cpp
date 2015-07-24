@@ -3,7 +3,7 @@
 #include <iostream>
 #include <MultiSense/MultiSenseChannel.hh>
 #include <lcm/lcm-cpp.hpp>
-#include <lcmtypes/multisense/state_t.hpp>
+#include <lcmtypes/multisense/joint_state_t.hpp>
 #include <lcmtypes/multisense/planar_lidar_t.hpp>
 #include <lcmtypes/multisense/rigid_transform_t.hpp>
 #include <cmath>
@@ -22,7 +22,7 @@ struct Laser::Imp {
 
   Laser* mLaser;
   std::string mStateChannel;
-  multisense::state_t mStateMessage;
+  multisense::joint_state_t mStateMessage;
 
   Imp(Laser* iLaser) {
     mLaser = iLaser;
@@ -40,7 +40,7 @@ struct Laser::Imp {
     // convert from microradians to radians
     double angle = 1e-6*iAngle;
 
-    // publish state_t message
+    // publish joint_state_t message
     auto& stateMsg = mStateMessage;
     stateMsg.utime = iTime;
     stateMsg.joint_position[0] = angle - kAngleOffset;

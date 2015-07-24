@@ -1,9 +1,11 @@
 package multisense;
 
-struct state_t
+// Generic State Message 
+// equivalent to ROS joint states message
+
+struct joint_state_t
 {
   int64_t  utime;
-  //  string name; // typically "hokuyo_joint" - update removed
   
   int16_t num_joints;
   string joint_name[num_joints];
