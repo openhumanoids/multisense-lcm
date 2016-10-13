@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <MultiSense/MultiSenseChannel.hh>
-#include <lcmtypes/multisense/imu_t.hpp>
+#include <lcmtypes/multisense/ins_t.hpp>
 #include <lcm/lcm-cpp.hpp>
 #include <cmath>
 
@@ -31,8 +31,11 @@ struct Imu::Imp {
     for (auto samp : iHeader.samples) {
 
       // populate message
-      multisense::imu_t msg;
+      multisense::ins_t msg;
       msg.utime = int64_t(samp.timeSeconds)*1000000 + samp.timeMicroSeconds;
+      msg.device_time = 0; // TODO: see ifthere in connet in the crl imu message
+      msg.quat[0] = 0; msg.quat[1] = 0; msg.quat[2] = 0; msg.quat[3] = 0;
+      msg.pressure = 0; msg.rel_alt = 0;
       switch (samp.type) {
       case crl::multisense::imu::Sample::Type_Accelerometer:
         msg.accel[0] = samp.x*kAccelFactor;

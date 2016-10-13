@@ -1,6 +1,9 @@
 package multisense;
 
-// Message to encode multisense imu data
+// DEPRECIATED DEPRECIATED
+// This message was used previously but duplicates
+// bot_core_ins_t. So we not reuse the ins_t type
+
 
 struct imu_t
 {
