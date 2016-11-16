@@ -32,8 +32,8 @@ int main(const int iArgc, const char** iArgv) {
   int desiredWidth = 1024;
   std::string ipAddress("10.66.171.21");
   int mtu = 7200;
-  std::string cameraChannel("CAMERA");
-  std::string laserChannel("SCAN");
+  std::string cameraChannel("MULTISENSE_CAMERA");
+  std::string laserChannel("MULTISENSE_SCAN");
   std::string imuChannel("");
   std::string stateChannel("MULTISENSE_STATE");
   std::string commandChannel("MULTISENSE_COMMAND");
