@@ -15,7 +15,7 @@ add_executable(${DRIVER_NAME}
 find_package(ZLIB REQUIRED)
 find_package(LibMultiSense REQUIRED)
 
-target_link_libraries(${DRIVER_NAME} ${ZLIB_LIBRARIES} ${LIBMULTISENSE_LIBRARIES})
+target_link_libraries(${DRIVER_NAME} ${ZLIB_LIBRARIES} ${LIBMULTISENSE_LIBRARIES} pthread)
 
 pods_use_pkg_config_packages(${DRIVER_NAME}
   lcm opencv
